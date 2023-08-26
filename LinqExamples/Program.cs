@@ -13,7 +13,29 @@ int[] ints = {
     673, 436, 204, 770, 965, 798, 881, 149, 906, 190,
     578, 333, 464, 607, 910, 887, 249, 261, 631, 896
 };
-
+int[] zints =
+{
+854, 494, 408, 106, 698,
+476, 117, 130, 305, 223,
+962, 739, 666, 970, 859,
+457, 822, 869, 686, 401,
+353, 750, 150, 428, 225,
+900, 887, 973, 319, 497,
+670, 245, 225, 237, 996,
+648, 401, 897, 571, 227,
+614, 126, 639, 615, 282,
+386, 839, 511, 565, 532,
+880, 336, 208, 606, 913,
+915, 518, 986, 841, 835,
+966, 377, 980, 313, 854,
+200, 790, 959, 279, 364,
+775, 978, 462, 442, 393,
+493, 288, 188, 491, 105,
+432, 446, 360, 125, 260,
+988, 984, 753, 738, 347,
+642, 376, 121, 488, 716,
+692, 101, 944, 497, 954, 
+};
 var intMin = ints.Min();
 var intMax = ints.Max();
 var intAvg = ints.Average();
@@ -48,3 +70,14 @@ var greaterInts = from i in ints
                   select i;
 greaterInts.ToList().ForEach(x => Console.Write($"{x}, "));
 Console.WriteLine();
+
+var lesserInts = ints.Where(i => i < ints.Average());
+
+foreach(var an in lesserInts)
+{
+    Console.Write($"{an}, ");
+}
+
+var combinedints = ints.ToList().Intersect(zints.ToList());
+
+combinedints.ToList().ForEach(x => Console.Write($"{x}, "));
